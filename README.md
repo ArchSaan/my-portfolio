@@ -1,2 +1,2 @@
 # archana-portfolio
-My Portfolio website built using github
+My Portfolio website built using React JS
