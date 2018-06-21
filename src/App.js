@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react';
+import TagCloud from 'react-tag-cloud';
+import randomColor from 'randomcolor';
+import { SocialIcon } from 'react-social-icons';
+import PhoneNumber from 'react-phone-number';
 const { changeFullpageSlide, changeHorizontalSlide } = Fullpage;
 const fullPageOptions = {
   // for mouse/wheel events
@@ -36,6 +40,19 @@ const horizontalNavStyle = {
   top: '50%',
   zIndex: 10
 };
+
+
+const styles = {
+  large: {
+    fontSize: 60,
+    fontWeight: 'bold'
+  },
+  small: {
+    opacity: 0.7,
+    fontSize: 16
+  }
+};
+
 
 const horizontalSliderProps = {
   name: 'horizontalSlider1',
@@ -119,14 +136,17 @@ class App extends Component {
     );
 
     const horizontalSlides = [
-      <Slide style={{backgroundColor: 'grey'}}><p>Horizontal 1</p></Slide>,
+      
       <Slide style={{backgroundColor: 'white'}}><p>Horizontal 2</p></Slide>,
       <Slide style={{backgroundColor: '#7878'}}><p>Horizontal 3</p></Slide>
     ];
     horizontalSliderProps.slides = horizontalSlides;
 
-    const horizontalSlider = <HorizontalSlider id='horizontal-slider-1' {...horizontalSliderProps}>{horizontalNav}</HorizontalSlider>;
+    const horizontalSlider = <HorizontalSlider id='horizontal-slider-1' {...horizontalSliderProps}>{horizontalNav}
+
+                             </HorizontalSlider>;
     let introWrapper = 'intro-wrapper';
+    let contactWrapper = 'contact-wrapper';
     const verticalSlides = [
       <Slide className={introWrapper}>
         <div class="intro-content">
@@ -137,8 +157,57 @@ class App extends Component {
 
         </div>
       </Slide>,
-      horizontalSlider,
-      <Slide style={{backgroundColor: 'pink'}}><p>Slide 3</p></Slide>
+      <Slide>
+        <div className='app-outer'>
+        <div className='app-inner'>
+          
+          <TagCloud 
+            className='tag-cloud'
+            style={{
+              fontFamily: 'sans-serif',
+              //fontSize: () => Math.round(Math.random() * 50) + 16,
+              fontSize: 30,
+              color: () => randomColor({
+                hue: 'blue'
+              }),
+              padding: 5,
+            }}>
+            
+            
+            <div style={styles.large}>CSS3</div>
+            <div style={styles.large}>PHP</div>
+            <div style={styles.large}>MYSQL</div>
+            <div style={styles.large}>React JS</div>
+            <div style={{fontFamily: 'courier'}}>Angular JS</div>
+            <div style={{fontSize: 30}}>Cordova</div>
+            <div style={{fontStyle: 'italic'}}>Ionic</div>
+            <div style={{fontWeight: 200}}>Javascript</div>
+            <div style={{color: 'green'}}>Laravel</div>
+           
+            <div>Bootstrap</div>
+            <div>Apache</div>
+            <div>Jquery</div>
+            <div>MVC</div>
+            <div>Neo4J</div>
+            <div>Git</div>
+            <div>Agile Methodology</div>
+            <div>Wordpress</div>
+            <div>Joomala</div>
+            <div>Android</div>
+            <div>PLSQL</div>
+            <div>Oracle</div>
+          
+            
+          </TagCloud>
+        </div>
+      </div>
+      </Slide>,
+      <Slide className={contactWrapper}>
+        <SocialIcon url="https://www.linkedin.com/in/archana-rajan-574071117/" />
+        <SocialIcon url="https://github.com/ArchSaan"  />
+        <SocialIcon url="https://plus.google.com/u/0/115742798827454403283"  />
+        
+      </Slide>
     ];
 fullPageOptions.slides = verticalSlides;
     return (
