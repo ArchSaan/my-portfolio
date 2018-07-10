@@ -39,7 +39,7 @@
   padding: 2em;
   font-size: 1.5em;
 }
-.arrow-down{
+.arrow-down,arrow-back{
     position:fixed;
     z-index:99;
     cursor: pointer;
@@ -49,10 +49,16 @@
     margin-left: -38px;
     left: 50%;
 }
-.arrow-down {
+.down {
     bottom: 20px;
     border-width: 38.5px 34px 0 38.5px;
     border-color: rgb(48, 63, 159) transparent transparent transparent;
+}
+
+.top {
+    bottom: 20px;
+    border-width: 0px 34px 38.5px 38.5px;
+    border-color: transparent transparent rgb(48, 63, 159) transparent;
 }
 
 .arrow {
@@ -153,5 +159,6 @@ vertical-align: middle;
 padding: 1em;
 margin: 1em;
 }
+
 
 
